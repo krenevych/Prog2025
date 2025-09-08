@@ -1,0 +1,3 @@
+___X_2332alskdjfSyntaxErrorinvaliddecimalliteral = 34
+
+print(___X_2332alskdjfSyntaxErrorinvaliddecimalliteral)
