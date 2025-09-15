@@ -8,7 +8,7 @@
 
 N = int(input("N=? "))
 
-isPrime = True
+isPrime = True  # змінна isPrime буде містити True, якщо число N просте та False, якщо число не є простим
 i = 2
 while i <= N-1:
     # print(i)
