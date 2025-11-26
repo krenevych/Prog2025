@@ -18,8 +18,8 @@ def print_matrix(M, spaces=5):
     #     print(row)
 
 
+if __name__ == '__main__':
+    N = int(input("Задайте кількість рядків матриці"))
+    M = read_matrix(N)
 
-N = int(input("Задайте кількість рядків матриці"))
-M = read_matrix(N)
-
-print_matrix(M, 10)
+    print_matrix(M, 10)
