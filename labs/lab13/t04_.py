@@ -1,11 +1,22 @@
 def read_matrix(file_name):
-    M = []
-    with open(file_name) as f:
-        for line in f:
-            row = [int(el) for el in line.split()]
-            M.append(row)
-    # якийсь код обробки, дуже довгий
-    return M
+    try:
+        M = []
+        cols = -1
+        with open(file_name) as f:
+            for line in f:
+                row = [int(el) for el in line.split()]
+                if cols == -1: cols = len(row)
+                else:
+                    if len(row) != cols:
+                        raise ValueError
+                M.append(row)
+        # якийсь код обробки, дуже довгий
+        return M
+    except FileNotFoundError:
+        return None
+    except ValueError:
+        return None
+
 
 def write_matrix(M, file_name, spaces=5):
     with open(file_name, "w") as f:
