@@ -8,23 +8,24 @@ class Triangle:
         self.a = a
         self.b = b
         self.c = c
-        self.id = id # ідентифікатор
+        self.id = id  # ідентифікатор
 
     # алгоритми для одного трикутника ========
     def perimetr(self):
         return self.a + self.b + self.c
-
 
     def square(self):
         p = self.perimetr() / 2  # півпериметр
         s = p * (p - self.a) * (p - self.b) * (p - self.c)
         return s ** 0.5
 
-    def __str__(self): # для функції print
-        return f"Triangle: {self.id=}, {self.a=}, {self.b=}, {self.c=}"
+    def h_a(self):
+        return 100500
+
+    def __str__(self):  # для функції print
+        return f"Triangle: id={self.id}, a={self.a}, b={self.b}, c={self.c}"
 
     # алгоритми кінець ========
-
 
 
 # дані початок ========
@@ -36,15 +37,18 @@ triangle_list = [
 ]
 # дані кінець ========
 
-t1 = Triangle(3, 4, 5, 1)
-print(t1.square())
+# створення трикутників
+index = 0
+triangles = []
+for a, b, c in triangle_list:
+    try:
+        t = Triangle(a, b, c, index)  # t = Triangle(2, 3, 4)
+        index += 1
+        triangles.append(t)
+    except AssertionError:
+        # print("У списку є ʼпоганіʼ трикутники")
+        pass
 
-t2 = Triangle(4, 5, 6, 2)
-print(t2.square())
-
-print(t1)
-print(t2)
-
-
-# for a, b, c in triangle_list:
-#    t = Triangle(a, b, c)  # t = Triangle(2, 3, 4)
+for t in triangles:
+    print(t)
+    print(t.square())
