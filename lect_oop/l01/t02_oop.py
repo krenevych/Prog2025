@@ -19,13 +19,19 @@ class Triangle:
         s = p * (p - self.a) * (p - self.b) * (p - self.c)
         return s ** 0.5
 
-    def h_a(self):
+    def h_a(self): # метод для рахування довжини висоти опущеної на основу a
         return 100500
 
     def __str__(self):  # для функції print
         return f"Triangle: id={self.id}, a={self.a}, b={self.b}, c={self.c}"
 
     # алгоритми кінець ========
+
+    def __del__(self):
+        print(f"трикутник видалений")
+
+t = Triangle(3, 4, 5, 911)
+del t
 
 
 # дані початок ========
@@ -39,7 +45,7 @@ triangle_list = [
 
 # створення трикутників
 index = 0
-triangles = []
+triangles: list[Triangle] = []
 for a, b, c in triangle_list:
     try:
         t = Triangle(a, b, c, index)  # t = Triangle(2, 3, 4)
@@ -51,4 +57,7 @@ for a, b, c in triangle_list:
 
 for t in triangles:
     print(t)
+    print(t.c)
     print(t.square())
+
+    # square() # не може використовуватися без обʼєкту її класу
