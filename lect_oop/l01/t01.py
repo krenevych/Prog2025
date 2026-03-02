@@ -12,19 +12,22 @@ def square(a, b, c):
 triangle_list = [
     [3, 4, 5],
     [5, 6, 5],
-    [6, 7, 7]
+    [6, 7, 7],
+    [1, 2, 100500]  # проблемні дані
 ]
 
 max_square = 0
 max_index = -1
 index = 0
 for a, b, c in triangle_list:
-    s = square(a, b, c)
-    if max_square < s:
-        max_square = s
-        max_index = index
+    # перевірка чи такий трикутник існує???
+    if a + b > c and a + c > b and b + c > a:
+        s = square(a, b, c)
+        if max_square < s:
+            max_square = s
+            max_index = index
 
-    index+=1
-    print(s)
+        index+=1
+        print(s)
 
 print(max_index, max_square)
