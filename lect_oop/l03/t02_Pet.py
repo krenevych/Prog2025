@@ -30,7 +30,6 @@ class Parrot(Pet):
         print("Parrot says:", self.name + " good boy!")
 
 
-
 if __name__ == '__main__':
 
     p = Pet("Pet")
