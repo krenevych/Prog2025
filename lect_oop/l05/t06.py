@@ -19,13 +19,35 @@ class Vector:
         else:
             raise ArithmeticError("Правий операнд є несумнісного типу")
 
+    def __imul__(self, other):
+        if isinstance(other, (int, float)):
+            self.x *= other
+            self.y *= other
+            return self
+        elif isinstance(other, (tuple, list)) and len(other) == 2:
+            self.x *= other[0]
+            self.y *= other[1]
+            return self
+        elif isinstance(other, Vector):
+            self.x *= other.x
+            self.y *= other.y
+            return self
+
+    def __neg__(self):
+        return Vector(-self.x, -self.y)
+
+
 if __name__ == '__main__':
     v1 = Vector(1, 2)
     print(v1)
 
-    v3 = v1 + (4, 5)
-    print(v3)
-    v4 = v1 + (4, 5)
-    print(v4)
-    v3 = v1 + [4, 5]
-    print(v3)
+    # v1 += (2, 4 ) # v1 = v1 + 2
+    # print(v1)
+
+    v1 *= Vector(3, 4)
+    print(v1)
+
+    v2 = -v1
+    print(v2)
+
+
