@@ -38,7 +38,30 @@ class Vector:
     def __float__(self):
         return float(self.x)
 
+    def __len__(self):
+        return 2
+
+    def __setitem__(self, key, value):
+        if key == 'x' or key == 0:
+            self.x = value
+        elif key == 'y' or key == 1:
+            self.y = value
+
+    def __getitem__(self, key):
+        if key == 'x' or key == 0:
+            return self.x
+        elif key == 'y' or key == 1:
+            return self.y
+        raise KeyError("Помилка ключа")
+
 
 if __name__ == '__main__':
-    v1 = Vector(3, 4)
-    print(abs(v1))
+    v = Vector(3, 4)
+    print(len(v))
+    v[0] = 5
+    v['y'] = 6
+    print(v)
+
+    print(v["x"])
+    print(v[1])
+    # print(v[9])
