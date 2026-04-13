@@ -1,6 +1,7 @@
 def FactorialGenerator(n):
     factorial = 1 # 0!
     yield factorial
+    # return 5 # - return як правило в генераторах не використовується
     for i in range(1, n + 1):
         factorial *= i
         yield factorial
