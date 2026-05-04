@@ -1,0 +1,13 @@
+class MyZeroDivisionError(ZeroDivisionError): # приклад створення власного класу виключення
+    pass
+
+try:
+    n = int(input("n = (int)?")) # користувач може задати не ціле число
+    if n == 0:
+        raise MyZeroDivisionError
+    print(10 / n) # тут може виникнути ділення на нуль
+except ValueError: # перехоплюємо проблему задавання не цілого числа
+    print("Ви мали задати ціле число")
+except MyZeroDivisionError: # перехоплюємо проблему ділення на нуль
+    print("Ви задали число 0, на нуль культурні люди не ділять!")
+
