@@ -74,4 +74,16 @@ if __name__ == '__main__':
     student.pass_exam()
     student.diagnose()
 
+    diagnosables: list[Diagnosable] = [
+        CarDiagnosable(),
+        student,
+        car,
+    ]
+
+    def foo(some_list: list[Diagnosable]):
+        print("=============")
+        for d in some_list:
+            d.diagnose()
+
+    foo(diagnosables)
 
